@@ -3,7 +3,7 @@
     <h5>My Recipes</h5>
     <ul>
       <% @user.recipes().each() do |recipe| %>
-        <li><a href="/user/<%= @user.id() %>/recipe/<%= recipe.id() %>"><%= recipe.name() %></a></li>
+        <li><a href="/user/<%= @user.id() %>/recipe/<%= recipe.id() %>/edit"><%= recipe.name() %></a></li>
       <% end %>
     </ul>
     <br>

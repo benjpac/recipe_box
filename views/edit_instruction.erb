@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3><a href="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/edit"><%= @recipe.name() %></a></h3>
+    <h5><%= @instruction.step() %></h5>
+    <form class="form-group" action="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/instruction/<%= @instruction.id() %>/edit" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label for="step">Instruction Description</label>
+      <input type="text" name="step">
+      <button class="waves-effect waves-light btn" type="submit">Edit Instruction</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-group" action="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/instruction/<%= @instruction.id() %>/delete" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button class="waves-effect waves-light btn" id="delete" type="submit">Delete Instruction</button>
+    </form>
+  </div>
+</div>

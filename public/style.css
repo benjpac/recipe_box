@@ -1,0 +1,16 @@
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#main-title {
+  font-size: 3em;
+}
+
+.panel-default>.panel-heading {
+  background-color: #8157FF;
+  color: #ffffff;
+}
+
+#delete {
+  background-color: #FF3366;
+}

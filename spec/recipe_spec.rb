@@ -9,20 +9,20 @@ describe Recipe do
       expect(recipe.categories()).to eq([category])
     end
   end
+  describe '#ingredients' do
+    it 'create a recipe, create an ingredient, push ingredient to recipe' do
+      recipe = Recipe.create({:name => 'Mac n Cheese'})
+      ingredient = Ingredient.create({:name => 'Cheese'})
+      recipe.ingredients.push(ingredient)
+      expect(recipe.ingredients()).to eq([ingredient])
+    end
+  end
   describe '#instructions' do
     it 'create a recipe and create instructions' do
       recipe = Recipe.create({:name => 'Mac n Cheese'})
       instruction1 = Instruction.create({:step => "wash ur hands", :recipe_id => recipe.id()})
       instruction2 = Instruction.create({:step => "cook the food", :recipe_id => recipe.id()})
       expect(recipe.instructions()).to eq([instruction1, instruction2])
-    end
-  end
-  describe '#ingredients' do
-    it 'create a recipe and create ingredients' do
-      recipe = Recipe.create({:name => 'Mac n Cheese'})
-      ingredient1 = Ingredient.create({:name => "beef", :amount => 1, :unit => "lbs", :recipe_id => recipe.id()})
-      ingredient2 = Ingredient.create({:name => "chicken", :amount => 2, :unit => "lbs", :recipe_id => recipe.id()})
-      expect(recipe.ingredients()).to eq([ingredient1, ingredient2])
     end
   end
 end
