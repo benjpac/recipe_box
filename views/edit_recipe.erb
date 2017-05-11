@@ -1,0 +1,12 @@
+<h5><%= @recipe.name() %></h5>
+<ul>
+  <% @recipe.ingredients() do |ingredient| %>
+    <li><%= ingredient.name() %></li>
+  <% end %>
+</ul>
+<form class="form-group" action="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/add_ingredient" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Ingredient Name</label>
+  <input type="text" name="name">
+  <button class="waves-effect waves-light btn" type="submit">Add Ingredient</button>
+</form>

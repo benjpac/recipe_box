@@ -1,2 +1,7 @@
-<h5>Recipe</h5>
-<%= @recipe.name() %>
+<h4><%= @recipe.name() %></h4>
+<h5>Ingredients</h5>
+<ul>
+    <% @recipe.ingredients().each do |ingredient| %>
+      <li><a href="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/ingredient/<%= ingredient.id() %>"><%= ingredient.name() %></a></li>
+    <% end %>
+</ul>
