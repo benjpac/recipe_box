@@ -11,6 +11,10 @@ body {
   color: #ffffff;
 }
 
+.right-align {
+  text-align: right;
+}
+
 #delete {
   background-color: #FF3366;
 }

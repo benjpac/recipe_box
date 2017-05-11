@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe Recipe do
+  describe '#save' do
+    it 'validates presence of name' do
+      recipe = Recipe.new({:name => ""})
+      expect(recipe.save()).to eq(false)
+    end
+  end
   describe '#categories' do
     it 'create a recipe, create a category, push category to recipe' do
       recipe = Recipe.create({:name => 'Mac n Cheese'})

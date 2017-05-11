@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h3><%= @recipe.name() %></h3>
+    <h3><a href="/user/<%= @user.id() %>"><%= @user.name() %>'s</a> <%= @recipe.name() %></h3>
   </div>
 </div>
 <div class="row">
@@ -8,7 +8,7 @@
     <h5>Ingredients</h5>
     <ul>
       <% @recipe.ingredients().each() do |ingredient| %>
-        <li><a href="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/ingredient/<%= ingredient.id() %>/edit"><%= ingredient.name() %></a></li>
+        <li><a href="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/ingredient/<%= ingredient.id() %>"><%= ingredient.name() %></a></li>
       <% end %>
     </ul>
   </div>
@@ -16,25 +16,23 @@
     <h5>Instructions</h5>
     <ul>
       <% @recipe.instructions().each() do |instruction| %>
-        <li><a href="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/instruction/<%= instruction.id() %>/edit"><%= instruction.step() %></a></li>
+        <li><a href="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/instruction/<%= instruction.id() %>"><%= instruction.step() %></a></li>
       <% end %>
     </ul>
   </div>
 </div>
 <div class="row">
   <div class="col-md-6">
-    <form class="form-group" action="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/add_ingredient" method="post">
-      <input type="hidden" name="_method" value="patch">
+    <form class="form-group" action="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/ingredient/new" method="post">
       <label for="name">Ingredient Name</label>
-      <input type="text" name="name">
+      <input type="text" name="name" required>
       <button class="waves-effect waves-light btn" type="submit">Add Ingredient</button>
     </form>
   </div>
   <div class="col-md-6">
-    <form class="form-group" action="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/add_instruction" method="post">
-      <input type="hidden" name="_method" value="patch">
+    <form class="form-group" action="/user/<%= @user.id() %>/recipe/<%= @recipe.id() %>/instruction/new" method="post">
       <label for="step">Instruction Description</label>
-      <input type="text" name="step">
+      <input type="text" name="step" required>
       <button class="waves-effect waves-light btn" type="submit">Add instruction</button>
     </form>
   </div>

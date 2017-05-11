@@ -6,4 +6,6 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :ingredient_assignments
   has_many :category_assignments
   has_many :categories, through: :category_assignments
+
+  validates :name, :presence => true
 end
